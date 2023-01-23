@@ -4,10 +4,12 @@ import { UIContext, uiReducer } from "./";
 
 export interface UIState{
     sideMenuOpen: boolean;
+    isAddingEntry: boolean
 }
 
 const UI_INITAL_STATE: UIState = {
-    sideMenuOpen: false
+    sideMenuOpen: false,
+    isAddingEntry: false
 }
 
 export const UIProvider:FC<PropsWithChildren> = ({ children }) => {
@@ -25,11 +27,16 @@ export const UIProvider:FC<PropsWithChildren> = ({ children }) => {
         })
     }
 
+    const toggleAddingEntry = ( isAddingEntry: boolean ) => {
+        dispatch({ type: 'UI - Toggle NewEntry', payload: isAddingEntry})
+    }
+
     return (
         <UIContext.Provider value={{
             ...state,
             closeSideMenu,
-            openSideMenu
+            openSideMenu,
+            toggleAddingEntry
         }}>
             { children }
         </UIContext.Provider>
