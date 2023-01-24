@@ -8,29 +8,27 @@ import { NewEntry } from '../components/ui/NewEntry';
 const  HomePage: NextPage = () => {
     return (
         <Layout title='Home | Openjira'>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} >
                 
                 <Grid item xs={12} sm={4}>
                     <Card sx={{ height: 'calc(100vh - 100px)' }}>
                         <CardHeader title='Pendientes' />
-                            {/* Agregar una nueva tarea */}
-                            {/* Agregar Listado de entrada */}
-                            <NewEntry/>
-                            <EntryList status='pending'/>
+                        <NewEntry/>
+                        <EntryList status='pending'/>
                     </Card>
                 </Grid>
 
                 <Grid item xs={12} sm={4}>
                     <Card sx={{ height: 'calc(100vh - 100px)' }}>
                         <CardHeader title='En Proceso' />
-                            <EntryList status='in-progress'/>
+                        <EntryList status='in-progress'/>
                     </Card>
                 </Grid>
 
                 <Grid item xs={12} sm={4}>
                     <Card sx={{ height: 'calc(100vh - 100px)' }}>
                         <CardHeader title='Completadas' />
-                            <EntryList status='finished'/>
+                        <EntryList status='finished'/>
                     </Card>
                 </Grid>
 
