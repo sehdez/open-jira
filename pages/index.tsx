@@ -31,8 +31,9 @@ const  HomePage: NextPage = () => {
                         <EntryList status='finished'/>
                     </Card>
                 </Grid>
-
-            </Grid>        </Layout>
+            </Grid> 
+                   
+        </Layout>
     )
 };
 
