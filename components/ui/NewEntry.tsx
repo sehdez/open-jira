@@ -1,10 +1,14 @@
-import { ChangeEvent, useState, useContext } from 'react';
+import { ChangeEvent, useState, useContext, FC } from 'react';
 import { Box, Button, TextField } from '@mui/material'
 import { SaveOutlined, AddCircleOutline } from '@mui/icons-material'
 import { EntriesContext } from '../../context/entries';
 import { UIContext } from '@/context/ui';
 
-export const NewEntry = () => {
+interface Props{
+    invisible?: boolean;
+}
+
+export const NewEntry: FC<Props> = ({ invisible = false }) => {
     const { addNewEntry } = useContext(EntriesContext);
     const { isAddingEntry, toggleAddingEntry } = useContext(UIContext);
     const [inputValue, setInputValue] = useState('');
@@ -26,7 +30,7 @@ export const NewEntry = () => {
 
     return (
         <Box
-            sx={{ marginBottom:2,paddingX:1 }}
+            sx={{ marginBottom:2,paddingX:1, opacity: invisible ? 0 : 1 }}
         >
 
             {

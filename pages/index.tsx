@@ -8,9 +8,9 @@ import { NewEntry } from '../components/ui/NewEntry';
 const  HomePage: NextPage = () => {
     return (
         <Layout title='Home | Openjira'>
-            <Grid container spacing={2} >
+            <Grid container spacing={2} justifyContent='center' >
                 
-                <Grid item xs={12} sm={4}>
+                <Grid item xs={12} md={6} lg={4} >
                     <Card sx={{ height: 'calc(100vh - 100px)' }}>
                         <CardHeader title='Pendientes' />
                         <NewEntry/>
@@ -18,16 +18,18 @@ const  HomePage: NextPage = () => {
                     </Card>
                 </Grid>
 
-                <Grid item xs={12} sm={4}>
+                <Grid item xs={12} md={6} lg={4} >
                     <Card sx={{ height: 'calc(100vh - 100px)' }}>
                         <CardHeader title='En Proceso' />
+                        <NewEntry invisible />
                         <EntryList status='in-progress'/>
                     </Card>
                 </Grid>
 
-                <Grid item xs={12} sm={4}>
+                <Grid item xs={12} md={6} lg={4} >
                     <Card sx={{ height: 'calc(100vh - 100px)' }}>
                         <CardHeader title='Completadas' />
+                        <NewEntry invisible />
                         <EntryList status='finished'/>
                     </Card>
                 </Grid>

@@ -1,5 +1,6 @@
 import { ChangeEvent, FC, useContext, useMemo, useState } from 'react';
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router';
 
 import { Layout } from '@/components/layout';
 import { SaveOutlined, DeleteOutline } from '@mui/icons-material'
@@ -37,6 +38,8 @@ const EntryPage: FC<Props> = ({ entry }) => {
     const [status, setStatus] = useState<EntryStatus>(entry.status);
     const [touched, setTouched] = useState(false);
     const { UpdateEntry } =useContext( EntriesContext )
+
+    const router = useRouter();
     const onTextFieldChanged = (e: ChangeEvent<HTMLInputElement> ) => {
         
         setTouched(true)
@@ -61,6 +64,7 @@ const EntryPage: FC<Props> = ({ entry }) => {
                 description: inputValue
             }
             UpdateEntry(updateEntry, true);
+            router.push('/')
         }catch(e){
             console.log(e)
         }
